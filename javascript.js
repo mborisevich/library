@@ -34,10 +34,7 @@ const dialog = document.querySelector("dialog");
 const dialogOpenButton = document.querySelector("dialog + button");
 const dialogCloseButton = document.querySelector("dialog > button");
 const addBook = document.querySelector('input[type="submit"]');
-const inputName = document.querySelector('input#title');
-const inputAuthor = document.querySelector('input#author');
-const inputYear = document.querySelector('input#year');
-const inputPages = document.querySelector('input#pages');
+
 
 dialogOpenButton.addEventListener("click", () => {
     dialog.showModal();
@@ -48,17 +45,21 @@ dialogCloseButton.addEventListener("click", () => {
 })
 addBook.addEventListener("click", (event) =>{
     event.preventDefault();
-    const addedBook = new Book(inputName.textContent,
-        inputAuthor.textContent,
-        inputPages.textContent,
-        inputYear.textContent
+    const inputName = document.querySelector('#title');
+    const inputAuthor = document.querySelector('#author');
+    const inputYear = document.querySelector('#year');
+    const inputPages = document.querySelector('#pages');
+    const addedBook = new Book(inputName.value,
+        inputAuthor.value,
+        inputPages.value,
+        inputYear.value
     )
-    addBookToLibrary(addedBook)
-
-    inputName.textContent = "";
-    inputAuthor.textContent = "";
-    inputPages.textContent="";
-    inputYear.textContent="";
+    addBookToLibrary(addedBook);
+    addBookTable(addedBook);
+    inputName.value = ""
+    inputAuthor.value = ""
+    inputPages.value = ""
+    inputYear.value = ""
 })
 function checkLibrary(){
     for (let i = 0; i < myLibrary.length; i++){
@@ -84,13 +85,14 @@ function checkLibrary(){
     }
 }
 checkLibrary()
+
 function addBookTable(book){
     const bookName = document.createElement("th");
     const bookAuthor = document.createElement("td");
     const bookYear = document.createElement("td");
     const bookPages = document.createElement("td");
 
-    bookName.textContent = `${book}.name}`;
+    bookName.textContent = `${book.name}`;
     bookAuthor.textContent = `${book.author}`;
     bookYear.textContent = `${book.year}`;
     bookPages.textContent = `${book.pages}`;
