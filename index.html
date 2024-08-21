@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <h1>Welcome to Max's Library!</h1>
+    <table>
+        <caption> Available books:</caption>
+        <tr class="name-row">
+            <th>Name</th>
+        </tr>
+        <tr class="author-row">
+            <th>Author</th>
+        </tr>
+        <tr class="year-row">
+            <th>Year</th>
+        </tr>
+        <tr class="page-row"><th>Pages</th></tr>
+    </table>
+    <dialog>
+        <button autofocus>Close</button>
+        <p>Add a book</p>
+        <form>
+            <label for="title">Book title: </label>
+            <input type="text" id="title" name="title" required>
+            <label for="author">
+                Book author:
+            </label>
+            <input type="text" id="author" name="author" required>
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year" required>
+            <label for="pages">Pages:</label>
+            <input type="text" id="pages" name="pages" required>
+            <input type="submit">
+        </form>
+    </dialog>
+    <button>Show dialog</button>
+    <script src="javascript.js"></script>
+</body>
+</html>
